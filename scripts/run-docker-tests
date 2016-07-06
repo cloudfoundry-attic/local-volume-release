@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -e -x
+
+cd `dirname $0`/..
+
+go build -o localdriver src/github.com/cloudfoundry-incubator/localdriver/cmd/localdriver/main.go
+
+PLUGIN_DIR=/run/docker/plugins
+DATA_DIR=/tmp/localdriver-data
+mkdir -p $PLUGIN_DIR
+mkdir -p $DATA_DIR
+
+./localdriver -listenAddr="$PLUGIN_DIR/localdriver.sock" -transport="unix" -mountDir="$DATA_DIR" &
+
+docker volume create --driver=localdriver --name local-volume --opt volume_id=local-volume
+docker run -v local-volume:/data --volume-driver=localdriver busybox /bin/sh -c "echo Hellopersistentworld > /data/hello.world"
+
+cat $DATA_DIR/_volumes/local-volume/hello.world
