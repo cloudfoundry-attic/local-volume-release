@@ -14,6 +14,11 @@ mkdir -p $DATA_DIR
 ./localdriver -listenAddr="$PLUGIN_DIR/localdriver.sock" -transport="unix" -mountDir="$DATA_DIR" &
 
 docker volume create --driver=localdriver --name local-volume --opt volume_id=local-volume
-docker run -v local-volume:/data --volume-driver=localdriver busybox /bin/sh -c "echo Hellopersistentworld > /data/hello.world"
+docker run --name hello-world -v local-volume:/data --volume-driver=localdriver busybox /bin/sh -c "echo Hellopersistentworld > /data/hello.world"
 
 cat $DATA_DIR/_volumes/local-volume/hello.world
+
+docker rm -v hello-world
+docker volume rm local-volume
+
+if [ -e "$DATA_DIR/_volumes/local-volume/hello.world" ]; then exit 1; fi
