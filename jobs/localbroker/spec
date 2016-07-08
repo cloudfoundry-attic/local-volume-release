@@ -1,0 +1,30 @@
+---
+name: localbroker
+
+templates:
+  ctl.erb: bin/localbroker_ctl
+
+packages:
+- golang
+- localvolume_pid_utils
+- localbroker
+
+properties:
+  localbroker.listen-addr:
+    description: "address localbroker listens on"
+    default: "0.0.0.0:8999"
+  localbroker.service-name:
+    description: "name of the service to be registered with cf"
+    default: "localfs"
+  localbroker.service-id:
+    description: "Id of the service to be registered with cf"
+    default: "localfs-service-guid"
+  localbroker.plan-name:
+    description: "Name of the service plan to be registered with cf"
+    default: "free"
+  localbroker.plan-id:
+    description: "Id of the service plan to be registered with cf"
+    default: "free-plan-guid"
+  localbroker.plan-desc:
+    description: "Description of the service plan to be registered with cf"
+    default: "free local filesystem"

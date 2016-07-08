@@ -54,3 +54,6 @@
 [submodule "src/code.cloudfoundry.org/runtimeschema"]
 	path = src/code.cloudfoundry.org/runtimeschema
 	url = https://github.com/cloudfoundry/runtimeschema.git
+[submodule "src/github.com/cloudfoundry-incubator/localbroker"]
+	path = src/github.com/cloudfoundry-incubator/localbroker
+	url = https://github.com/cloudfoundry-incubator/localbroker.git

@@ -36,6 +36,7 @@ function sync_package() {
 }
 
 sync_package localdriver       -app github.com/cloudfoundry-incubator/localdriver/cmd/localdriver
+sync_package localbroker       -app github.com/cloudfoundry-incubator/localbroker/cmd/localbroker
 
 wait
 

@@ -1,0 +1,51 @@
+#!/bin/bash
+
+set -e -x
+
+RUN_DIR=/var/vcap/sys/run/localbroker
+LOG_DIR=/var/vcap/sys/log/localbroker
+PIDFILE=$RUN_DIR/localbroker.pid
+
+source /var/vcap/packages/localvolume_pid_utils/pid_utils.sh
+
+case $1 in
+
+  start)
+    pid_guard $PIDFILE "localbroker"
+
+    mkdir -p $RUN_DIR
+    chown -R vcap:vcap $RUN_DIR
+
+    mkdir -p $LOG_DIR
+    chown -R vcap:vcap $LOG_DIR
+
+    export GOMAXPROCS=$(nproc)
+
+    # Work around for go DNS bug (fix slated for v1.7)
+    export GODEBUG=netdns=cgo
+
+    echo $$ > $PIDFILE
+
+    exec chpst -u vcap:vcap /var/vcap/packages/localbroker/bin/localbroker \
+      --listenAddr="<%= p("localbroker.listen-addr") %>" \
+      --serviceName="<%= p("localbroker.service-name") %>" \
+      --serviceId="<%= p("localbroker.service-id") %>" \
+      --planName="<%= p("localbroker.plan-name") %>" \
+      --planId="<%= p("localbroker.plan-id") %>" \
+      --planDesc="<%= p("localbroker.plan-desc") %>" \
+      2> >(tee -a $LOG_DIR/localbroker.stderr.log | logger -p user.error -t vcap.localbroker) \
+      1> >(tee -a $LOG_DIR/localbroker.stdout.log | logger -p user.info -t vcap.localbroker)
+
+    ;;
+
+  stop)
+    kill_and_wait $PIDFILE
+
+    ;;
+
+  *)
+    echo "Usage: localbroker_ctl {start|stop}"
+
+    ;;
+
+esac

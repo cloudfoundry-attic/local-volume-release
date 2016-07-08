@@ -1,0 +1,5 @@
+check process localbroker
+  with pidfile /var/vcap/sys/run/localbroker/localbroker.pid
+  start program "/var/vcap/jobs/localbroker/bin/localbroker_ctl start"
+  stop program "/var/vcap/jobs/localbroker/bin/localbroker_ctl stop"
+  group vcap
