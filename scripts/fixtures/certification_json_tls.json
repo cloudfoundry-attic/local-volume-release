@@ -8,8 +8,8 @@
   },
   "tls_config": {
     "InsecureSkipVerify": true,
-    "CAFile": "~/workspace/local-volume-release/scripts/certs/localdriver_ca.crt",
-    "CertFile":"~/workspace/local-volume-release/scripts/certs/localdriver_client.crt",
-    "KeyFile":"~/workspace/local-volume-release/scripts/certs/localdriver_client.key"
+    "CAFile": "~/certs/localdriver_ca.crt",
+    "CertFile":"~/certs/localdriver_client.crt",
+    "KeyFile":"~/certs/localdriver_client.key"
   }
 }
