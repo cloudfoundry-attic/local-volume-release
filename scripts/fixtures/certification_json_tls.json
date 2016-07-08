@@ -1,0 +1,15 @@
+{
+  "volman_driver_path": "~/voldriver_plugins",
+  "driver_address":"https://127.0.0.1:9876",
+  "driver_name": "localdriver",
+  "create_config": {
+    "Name": "fake-volume",
+    "Opts": {"volume_id":"fake-volume"}
+  },
+  "tls_config": {
+    "InsecureSkipVerify": true,
+    "CAFile": "~/workspace/local-volume-release/scripts/certs/localdriver_ca.crt",
+    "CertFile":"~/workspace/local-volume-release/scripts/certs/localdriver_client.crt",
+    "KeyFile":"~/workspace/local-volume-release/scripts/certs/localdriver_client.key"
+  }
+}
