@@ -9,11 +9,12 @@ pkill -f localdriver
 mkdir -p ~/voldriver_plugins
 rm ~/voldriver_plugins/localdriver.*
 
-mkdir -p ../mountdir
+mountdir=realpath ../mountdir
+mkdir -p mountdir
 
 # temporarily create a sock file in order to find an absolute path for it
 touch ~/voldriver_plugins/localdriver.sock
 listenAddr=$HOME/voldriver_plugins/localdriver.sock
 rm ~/voldriver_plugins/localdriver.sock
 
-~/localdriver -listenAddr="${listenAddr}" -transport="unix" -mountDir="../mountdir" &
+~/localdriver -listenAddr="${listenAddr}" -transport="unix" -mountDir="${mountdir}" &
