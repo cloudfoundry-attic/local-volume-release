@@ -18,6 +18,7 @@ files:
   - github.com/cloudfoundry-incubator/voldriver/*.go # gosub
   - github.com/cloudfoundry-incubator/voldriver/driverhttp/*.go # gosub
   - github.com/cloudfoundry/gunk/http_wrap/*.go # gosub
+  - github.com/cloudfoundry/gunk/os_wrap/exec_wrap/*.go # gosub
   - github.com/tedsuo/ifrit/*.go # gosub
   - github.com/tedsuo/ifrit/grouper/*.go # gosub
   - github.com/tedsuo/ifrit/http_server/*.go # gosub
