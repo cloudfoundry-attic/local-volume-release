@@ -7,6 +7,8 @@ cd ..
 
 go build -o "$HOME/localdriver" "src/github.com/cloudfoundry-incubator/localdriver/cmd/localdriver/main.go"
 
+go get -t github.com/cloudfoundry-incubator/volume_driver_cert
+
 #=======================================================================================================================
 # localdriver runs in 4 different modes to test the 4 different transports we support.  This script tests all 4
 #=======================================================================================================================
