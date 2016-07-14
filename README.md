@@ -5,13 +5,15 @@ This is a bosh release that packages a [localdriver](https://github.com/cloudfou
 
 Beginning from a deployed, Diego-backed Cloud Foundry,
 
-To deploy a localbroker, first add your bosh-lite director-uuid to `manifest/bosh-lite/localbroker.yml`, then run the following:
+To deploy a localbroker, to bosh-lite:
 ```bash
-bosh create release --force && bosh upload release && bosh -d manifest/bosh-lite/localbroker.yml deploy
+scripts/generate-bosh-lite-manifest.sh
+bosh create release --force && bosh upload release && bosh -d manifests/bosh-lite/broker.yml deploy
 ```
 
-Then, to register the service broker:
+Then, to register the service broker and create a service instance:
 ```bash
 cf create-service-broker localbroker admin admin http://localbroker.bosh-lite.com
 cf enable-service-access local-volume
+cf create-service local-volume free-local-disk local-volume-instance
 ```
