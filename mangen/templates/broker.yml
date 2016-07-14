@@ -1,6 +1,6 @@
 ---
 name: local-volume
-director_uuid: 510ac165-ee99-4c45-8274-1b989e5d5697
+director_uuid: (( merge ))
 compilation:
   cloud_properties: {}
   network: local-net
@@ -43,6 +43,7 @@ properties:
     plan-name: free-local-disk
     service-id: local-volume
     service-name: local-volume
+    localdriver-url: (( merge ))
   nats:
     machines:
     - 10.244.0.6

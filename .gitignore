@@ -12,7 +12,6 @@ src_alt
 output/
 tmp/
 releases/**/*.tgz
-bosh-lite/
 dev_releases
 .blobs
 blobs

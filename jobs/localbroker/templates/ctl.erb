@@ -28,6 +28,7 @@ case $1 in
 
     exec chpst -u vcap:vcap /var/vcap/packages/localbroker/bin/localbroker \
       --listenAddr="<%= p("localbroker.listen-addr") %>" \
+      --localdriverURL="<%= p("localbroker.localdriver-url") %>" \
       --serviceName="<%= p("localbroker.service-name") %>" \
       --serviceId="<%= p("localbroker.service-id") %>" \
       --planName="<%= p("localbroker.plan-name") %>" \
