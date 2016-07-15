@@ -13,7 +13,16 @@ bosh create release --force && bosh upload release && bosh -d manifests/bosh-lit
 
 Then, to register the service broker and create a service instance:
 ```bash
+# optionaly delete previous broker:
+cf delete-service-broker localbroker
 cf create-service-broker localbroker admin admin http://localbroker.bosh-lite.com
 cf enable-service-access local-volume
+cf create-service local-volume free-local-disk local-volume-instance
+cf bind-service pora local-volume-instance
+```
+
+The localbroker, as it stands, keeps all state in memory. This means that bosh deploys will leave the broker out of sync with cc. To fix this:
+```bash
+cf purge-service-instance local-volume-instance
 cf create-service local-volume free-local-disk local-volume-instance
 ```
