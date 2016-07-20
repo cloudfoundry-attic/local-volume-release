@@ -1,0 +1,20 @@
+#!/bin/bash
+set -x -e
+
+release_dir=$(cd $(dirname $0)/.. && pwd)
+
+cat > /tmp/pats_integration_config.json <<EOF
+{
+  "api": "api.bosh-lite.com",
+  "admin_user": "admin",
+  "admin_password": "admin",
+  "apps_domain": "bosh-lite.com",
+  "skip_ssl_validation": true,
+  "use_http": true,
+  "backend": "diego"
+}
+EOF
+
+TEST_APPLICATION_PATH=${release_dir}/assets/pora/ \
+CONFIG=/tmp/pats_integration_config.json \
+ginkgo ${release_dir}/src/github.com/cloudfoundry-incubator/persi-acceptance-tests
