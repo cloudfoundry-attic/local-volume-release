@@ -8,6 +8,32 @@ compilation:
 jobs:
 - instances: 1
   log_level: debug
+  name: pats-broker
+  networks:
+  - name: local-net
+  resource_pool: local-resourcepool
+  templates:
+  - name: localbroker
+    release: local-volume
+  - name: route_registrar
+    release: cf
+  properties:
+    localbroker:
+      service-id: pats-local-volume
+      service-name: pats-service
+      plan-name: pats-plan
+      plan-id: pats-plan-id
+    route_registrar:
+      routes:
+      - name: pats-broker
+        port: 8999
+        registration_interval: 20s
+        tags:
+          component: pats-broker
+        uris:
+        - pats-broker.bosh-lite.com
+- instances: 1
+  log_level: debug
   name: localbroker
   networks:
   - name: local-net
@@ -18,6 +44,11 @@ jobs:
   - name: route_registrar
     release: cf
   properties:
+    localbroker:
+      service-id: local-volume
+      service-name: local-volume
+      plan-name: free-local-disk
+      plan-id: free
     route_registrar:
       routes:
       - name: localbroker
@@ -39,10 +70,6 @@ networks:
 properties:
   localbroker:
     plan-desc: free local filesystem for bosh-lite
-    plan-id: free-plan-guid
-    plan-name: free-local-disk
-    service-id: local-volume
-    service-name: local-volume
     localdriver-url: (( merge ))
   nats:
     machines:

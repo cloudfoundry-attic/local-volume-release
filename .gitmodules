@@ -73,3 +73,6 @@
 [submodule "src/golang.org/x/crypto"]
 	path = src/golang.org/x/crypto
 	url = https://go.googlesource.com/crypto
+[submodule "src/github.com/cloudfoundry-incubator/persi-acceptance-tests"]
+	path = src/github.com/cloudfoundry-incubator/persi-acceptance-tests
+	url = https://github.com/cloudfoundry-incubator/persi-acceptance-tests/

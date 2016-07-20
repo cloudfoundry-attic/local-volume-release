@@ -29,6 +29,8 @@ case $1 in
     # Allowed number of open file descriptors
     ulimit -n 100000
 
+    # volume drivers need to create directories with 777 so container users can see them
+    umask 0
     exec chpst -u vcap:vcap /var/vcap/packages/localdriver/bin/localdriver \
       --listenAddr="<%= p("localdriver.listen_addr") %>" \
       --transport="tcp" \
