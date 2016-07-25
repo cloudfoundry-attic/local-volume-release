@@ -30,3 +30,6 @@ properties:
   localbroker.plan-desc:
     description: "Description of the service plan to be registered with cf"
     default: "free local filesystem"
+  localbroker.data-dir:
+    description: "Directory on broker VM to persist instance and binding state"
+    default: "/var/vcap/store/localbroker"
