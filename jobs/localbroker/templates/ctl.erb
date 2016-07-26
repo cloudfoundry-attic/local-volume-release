@@ -19,6 +19,9 @@ case $1 in
     mkdir -p $LOG_DIR
     chown -R vcap:vcap $LOG_DIR
 
+    mkdir -p "<%= p("localbroker.data-dir") %>"
+    chown -R vcap:vcap "<%= p("localbroker.data-dir") %>"
+
     export GOMAXPROCS=$(nproc)
 
     # Work around for go DNS bug (fix slated for v1.7)

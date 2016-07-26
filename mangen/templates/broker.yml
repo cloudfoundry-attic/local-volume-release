@@ -23,6 +23,7 @@ jobs:
       service-name: pats-service
       plan-name: pats-plan
       plan-id: pats-plan-id
+      data-dir: /var/vcap/store/pats-localbroker
     route_registrar:
       routes:
       - name: pats-broker

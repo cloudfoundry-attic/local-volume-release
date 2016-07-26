@@ -13,7 +13,7 @@ taskID=$(curl -I -s -k 'https://admin:admin@192.168.50.4:25555/deployments/cf-wa
 # but it redirects to the wrong URL, so fix that and get the task
 taskIP=$(curl I -s -k "https://admin:admin@192.168.50.4:25555/tasks/${taskID}")
 # but that's got an asynchronous result endpoint to poll, so wait
-sleep 1
+sleep 5
 # finally get the task result and rip the cell IP out of its json
 cellIP=$(curl -s -k "https://admin:admin@192.168.50.4:25555/tasks/${taskID}/output?type=result" | jq -r 'select(.job_name | contains("cell_z1")) | .ips[]')
 }
