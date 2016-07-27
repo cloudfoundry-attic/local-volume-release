@@ -2,7 +2,7 @@
 name: localdriver
 
 dependencies:
-- golang
+- golang-localvolume
 
 files:
   - code.cloudfoundry.org/cfhttp/*.go # gosub
