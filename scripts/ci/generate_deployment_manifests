@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -e -x -u
+
+source $(pwd)/local-volume-release/scripts/ci/utils.sh
+check_param BOSH_TARGET
+check_param BOSH_USERNAME
+check_param BOSH_PASSWORD
+check_param ENVIRONMENT_NAME
+check_param DEPLOYMENTS_DIR
+
+if [ -z "$ENVIRONMENT_NAME" ]; then
+  environment_path="${PWD}/${DEPLOYMENTS_DIR}"
+else
+  environment_path="${PWD}/${DEPLOYMENTS_DIR}/${ENVIRONMENT_NAME}"
+fi
+
+stubs_path="${environment_path}/stubs"
+templates_path="${environment_path}/templates"
+localvolume_stubs="${PWD}/${DEPLOYMENTS_DIR}/localvolume/stubs"
+
+pushd local-volume-release
+  ./templates/generate_manifest.sh aws \
+    ../generated-manifest-localvolume/cf-deployment.yml \
+    ${localvolume_stubs}/director-uuid.yml \
+    ${BOSH_TARGET} \
+    ${BOSH_USERNAME} \
+    ${BOSH_PASSWORD}
+
+  mv localvolume-aws-manifest.yml ../generated-manifest-localvolume/localvolume-manifest.yml
+popd
+
