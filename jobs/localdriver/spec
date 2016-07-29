@@ -13,10 +13,10 @@ packages:
 properties:
   localdriver.listen_addr:
     description: "address localdriver listens on"
-    default: "0.0.0.0:8089"
+    default: "0.0.0.0:9089"
   localdriver.debug_addr:
     description: "address localdriver will serve debug info"
-    default: "0.0.0.0:8189"
+    default: "0.0.0.0:9189"
   localdriver.driver_path:
     description: "path to place driver spec/json file for volman to discover"
     default: "/var/vcap/data/voldrivers"
