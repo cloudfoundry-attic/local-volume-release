@@ -11,10 +11,10 @@ check_param BOSH_PASSWORD
 version=`cat local-volume-version/number`
 pushd local-volume-release
 
-bosh -n --parallel 10 create release --version $version --name localvolume --force --with-tarball
+bosh -n --parallel 10 create release --version $version --name local-volume --force --with-tarball
 
 bosh -n target ${BOSH_TARGET}
 bosh -n login ${BOSH_USERNAME} ${BOSH_PASSWORD}
-bosh upload release dev_releases/localvolume/*.tgz
-mv dev_releases/localvolume/*.tgz ../created-local-volume-release
+bosh upload release dev_releases/local-volume/*.tgz
+mv dev_releases/local-volume/*.tgz ../created-local-volume-release
 popd
