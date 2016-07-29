@@ -19,6 +19,13 @@ stubs_path="${environment_path}/stubs"
 templates_path="${environment_path}/templates"
 localvolume_stubs="${PWD}/${DEPLOYMENTS_DIR}/localvolume/stubs"
 
+pushd cf-release
+  ./scripts/generate_deployment_manifest \
+    ${INFRASTRUCTURE} \
+    ${stubs_path}/cf/*.yml \
+    > ../generated-manifest-localvolume/cf-deployment.yml
+popd
+
 pushd local-volume-release
   ./templates/generate_manifest.sh aws \
     ../generated-manifest-localvolume/cf-deployment.yml \
