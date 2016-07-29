@@ -1,5 +1,5 @@
 ---
-name: localvolume
+name: local-volume
 director_uuid:  (( merge ))
 compilation:
   workers: 1
@@ -22,7 +22,7 @@ jobs:
     static_ips: [52.205.244.140]
   resource_pool: medium
   templates:
-  - release: localvolume
+  - release: local-volume
     name: localbroker
   - release: cf
     name: route_registrar
@@ -55,7 +55,7 @@ jobs:
     static_ips: [52.205.231.171]
   resource_pool: medium
   templates:
-  - release: localvolume
+  - release: local-volume
     name: localbroker
   - release: cf
     name: route_registrar
@@ -101,7 +101,7 @@ properties:
     localdriver-url: (( merge ))
   nats: (( merge ))
 releases:
-  - name: localvolume
+  - name: local-volume
     version: latest
   - name: cf
     version: latest
