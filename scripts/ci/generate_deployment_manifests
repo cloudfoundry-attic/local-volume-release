@@ -17,7 +17,7 @@ fi
 
 stubs_path="${environment_path}/stubs"
 templates_path="${environment_path}/templates"
-localvolume_stubs="${PWD}/${DEPLOYMENTS_DIR}/localvolume/stubs"
+localvolume_stubs="${PWD}/${DEPLOYMENTS_DIR}/local-volume/stubs"
 
 pushd cf-release
   ./scripts/generate_deployment_manifest \
