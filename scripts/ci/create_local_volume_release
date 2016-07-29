@@ -16,5 +16,5 @@ bosh -n --parallel 10 create release --version $version --name local-volume --fo
 bosh -n target ${BOSH_TARGET}
 bosh -n login ${BOSH_USERNAME} ${BOSH_PASSWORD}
 bosh upload release dev_releases/local-volume/*.tgz
-mv dev_releases/local-volume/*.tgz ../created-local-volume-release
+mv dev_releases/local-volume/local-volume*.tgz ../created-local-volume-release/localvolume*.tgz
 popd
