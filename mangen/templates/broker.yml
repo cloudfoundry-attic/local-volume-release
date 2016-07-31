@@ -89,7 +89,7 @@ resource_pools:
   network: local-net
   stemcell:
     name: bosh-warden-boshlite-ubuntu-trusty-go_agent
-    version: '3147'
+    version: latest
 update:
   canaries: 1
   canary_watch_time: 1000-60000
