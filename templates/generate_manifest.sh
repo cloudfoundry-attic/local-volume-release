@@ -25,7 +25,7 @@ cat > ${PWD}/cell-ip.yml << EOF
 ---
 properties:
   localbroker:
-    localdriver-url: http://${cellIP}:8089
+    localdriver-url: http://${cellIP}:9089
 EOF
 }
 

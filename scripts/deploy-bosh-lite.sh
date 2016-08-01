@@ -4,6 +4,7 @@ set -e -x
 
 pushd ~/workspace/cf-release
     ./scripts/generate-bosh-lite-dev-manifest
+    sed -i -e 's/default_to_diego_backend: false/default_to_diego_backend: true/g' bosh-lite/deployments/cf.yml
 popd
 
 pushd ~/workspace/diego-release
