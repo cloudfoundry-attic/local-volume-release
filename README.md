@@ -94,7 +94,7 @@ This is a bosh release that packages a [localdriver](https://github.com/cloudfou
     ```bash
     cf create-service local-volume free-local-disk local-volume-instance
     
-    cf push pora -f ./assets/pora/manifest.yml --no-start
+    cf push pora -f ./assets/pora/manifest.yml -p ./assets/pora/ --no-start
     
     cf bind-service pora local-volume-instance
     
