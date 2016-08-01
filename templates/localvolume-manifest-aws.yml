@@ -29,10 +29,10 @@ jobs:
   persistent_disk: 25000
   properties:
     localbroker:
-      service-id: pats-local-volume
-      service-name: pats-service
-      plan-name: pats-plan
-      plan-id: pats-plan-id
+      service-id: localvolume-ginkgoPATS-pats-local-volume
+      service-name: localvolume-ginkgoPATS-pats-service
+      plan-name: localvolume-ginkgoPATS-pats-plan
+      plan-id: localvolume-ginkgoPATS-pats-plan-id
       data-dir: /var/vcap/store/pats-localbroker
     route_registrar:
       routes:
@@ -42,7 +42,7 @@ jobs:
         tags:
           component: pats-local-broker
         uris:
-        - pats-local-broker.persi.cf-app.com
+        - pats-broker.local.persi.cf-app.com
 
 
 - name: localbroker-acc
