@@ -42,7 +42,7 @@ jobs:
         tags:
           component: pats-local-broker
         uris:
-        - pats-broker.local.persi.cf-app.com
+        - pats-broker.localvolume-ginkgoPATS.persi.cf-app.com
 
 
 - name: localbroker-acc
