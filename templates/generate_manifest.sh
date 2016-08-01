@@ -9,13 +9,13 @@
 get_cell_ip ()
 {
 # get the full diego deployment, it should have IPs in it
-taskID=$(curl -I -s -k "https://${5}:${6}@${4}/deployments/cf-warden-diego/vms?format=full" | grep tasks | awk -F "/" '{print $NF}' | tr -d "\r")
+taskID=$(curl -I -s -k "https://${6}:${7}@${5}/deployments/cf-warden-diego/vms?format=full" | grep tasks | awk -F "/" '{print $NF}' | tr -d "\r")
 # but it redirects to the wrong URL, so fix that and get the task
-taskIP=$(curl I -s -k "https://${5}:${6}@${4}/tasks/${taskID}")
+taskIP=$(curl I -s -k "https://${6}:${7}@${5}/tasks/${taskID}")
 # but that's got an asynchronous result endpoint to poll, so wait
 sleep 5
 # finally get the task result and rip the cell IP out of its json
-cellIP=$(curl -s -k "https://${5}:${6}@${4}/tasks/${taskID}/output?type=result" | jq -r 'select(.job_name | contains("cell_z1")) | .ips[]')
+cellIP=$(curl -s -k "https://${6}:${7}@${5}/tasks/${taskID}/output?type=result" | jq -r 'select(.job_name | contains("cell_z1")) | .ips[]')
 }
 
 print_cell_ip_stub ()
@@ -31,7 +31,7 @@ EOF
 
 
 usage () {
-    echo "Usage: generate_manifest.sh bosh-lite|aws cf-manifest director-stub bosh_target bosh_username bosh_password"
+    echo "Usage: generate_manifest.sh bosh-lite|aws cf-manifest director-stub localbroker-creds-stub bosh_target bosh_username bosh_password"
     echo " * default"
     exit 1
 }
@@ -58,6 +58,7 @@ if [ "$1" == "aws" ]
     spiff merge ${templates}/localvolume-manifest-aws.yml \
     $2 \
     $3 \
+    $4 \
     ${PWD}/cell-ip.yml \
     ${templates}/stubs/toplevel-manifest-overrides.yml \
     > $PWD/$MANIFEST_NAME.yml

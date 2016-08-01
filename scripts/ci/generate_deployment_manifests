@@ -30,6 +30,7 @@ pushd local-volume-release
   ./templates/generate_manifest.sh aws \
     ../generated-manifest-localvolume/cf-deployment.yml \
     ${localvolume_stubs}/director-uuid.yml \
+    ${stubs_path}/localbroker/creds.yml \
     ${BOSH_TARGET} \
     ${BOSH_USERNAME} \
     ${BOSH_PASSWORD}

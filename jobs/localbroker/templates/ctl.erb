@@ -38,6 +38,8 @@ case $1 in
       --planId="<%= p("localbroker.plan-id") %>" \
       --planDesc="<%= p("localbroker.plan-desc") %>" \
       --dataDir="<%= p("localbroker.data-dir") %>" \
+      --username="<%= p("localbroker.username") %>" \
+      --password="<%= p("localbroker.password") %>" \
       2> >(tee -a $LOG_DIR/localbroker.stderr.log | logger -p user.error -t vcap.localbroker) \
       1> >(tee -a $LOG_DIR/localbroker.stdout.log | logger -p user.info -t vcap.localbroker)
 

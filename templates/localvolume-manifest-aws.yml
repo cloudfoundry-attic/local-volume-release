@@ -34,6 +34,8 @@ jobs:
       plan-name: localvolume-ginkgoPATS-pats-plan
       plan-id: localvolume-ginkgoPATS-pats-plan-id
       data-dir: /var/vcap/store/pats-localbroker
+      username: (( merge ))
+      password: (( merge ))
     route_registrar:
       routes:
       - name: pats-local-broker

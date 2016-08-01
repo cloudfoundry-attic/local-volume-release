@@ -33,3 +33,9 @@ properties:
   localbroker.data-dir:
     description: "Directory on broker VM to persist instance and binding state"
     default: "/var/vcap/store/localbroker"
+  localbroker.username:
+    description: "Basic auth username to verify on incoming Service Broker requests"
+    default: "admin"
+  localbroker.password:
+    description: "Basic auth password to verify on incoming Service Broker requests"
+    default: "admin"
