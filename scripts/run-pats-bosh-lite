@@ -17,4 +17,4 @@ EOF
 
 TEST_APPLICATION_PATH=${release_dir}/assets/pora/ \
 CONFIG=/tmp/pats_integration_config.json \
-ginkgo ${release_dir}/src/github.com/cloudfoundry-incubator/persi-acceptance-tests
+ginkgo ${release_dir}/src/code.cloudfoundry.org/persi-acceptance-tests

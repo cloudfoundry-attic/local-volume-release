@@ -86,3 +86,6 @@
 [submodule "src/code.cloudfoundry.org/localbroker"]
 	path = src/code.cloudfoundry.org/localbroker
 	url = https://github.com/cloudfoundry-incubator/localbroker
+[submodule "src/code.cloudfoundry.org/persi-acceptance-tests"]
+	path = src/code.cloudfoundry.org/persi-acceptance-tests
+	url = https://github.com/cloudfoundry-incubator/persi-acceptance-tests
