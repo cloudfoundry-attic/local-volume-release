@@ -29,7 +29,7 @@ popd
 pushd local-volume-release
   bosh --non-interactive target ${BOSH_TARGET}
   bosh login ${BOSH_USERNAME} ${BOSH_PASSWORD}
-  cellIp=`bosh vms | grep cell_z1 | awk '{print $11}'`
+  cellIP=`bosh vms | grep cell_z1 | awk '{print $11}'`
   cat > ${PWD}/cell-ip.yml << EOF
 ---
 properties:
