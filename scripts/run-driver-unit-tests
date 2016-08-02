@@ -5,6 +5,6 @@ set -e
 scripts_path=./$(dirname $0)
 eval $($scripts_path/get_paths.sh)
 
-pushd src/github.com/cloudfoundry-incubator/localdriver
+pushd src/code.cloudfoundry.org/localdriver
   ginkgo -r -keepGoing -p -trace -randomizeAllSpecs -progress --race "$@"
 popd

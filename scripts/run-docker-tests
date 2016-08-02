@@ -4,7 +4,7 @@ set -e -x
 
 cd `dirname $0`/..
 
-go build -o localdriver src/github.com/cloudfoundry-incubator/localdriver/cmd/localdriver/main.go
+go build -o localdriver src/code.cloudfoundry.org/localdriver/cmd/localdriver/main.go
 
 PLUGIN_DIR=/run/docker/plugins
 DATA_DIR=/tmp/localdriver-data

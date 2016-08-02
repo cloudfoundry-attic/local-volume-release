@@ -5,7 +5,7 @@ set -e
 cd `dirname $0`
 cd ..
 
-go build -o "$HOME/localdriver" "src/github.com/cloudfoundry-incubator/localdriver/cmd/localdriver/main.go"
+go build -o "$HOME/localdriver" "src/code.cloudfoundry.org/localdriver/cmd/localdriver/main.go"
 
 go get -t github.com/cloudfoundry-incubator/volume_driver_cert
 

@@ -76,6 +76,13 @@
 [submodule "src/golang.org/x/crypto"]
 	path = src/golang.org/x/crypto
 	url = https://go.googlesource.com/crypto
+	branch = master
 [submodule "src/code.cloudfoundry.org/voldriver"]
 	path = src/code.cloudfoundry.org/voldriver
 	url = https://github.com/cloudfoundry-incubator/voldriver
+[submodule "src/code.cloudfoundry.org/localdriver"]
+	path = src/code.cloudfoundry.org/localdriver
+	url = https://github.com/cloudfoundry-incubator/localdriver
+[submodule "src/code.cloudfoundry.org/localbroker"]
+	path = src/code.cloudfoundry.org/localbroker
+	url = https://github.com/cloudfoundry-incubator/localbroker
