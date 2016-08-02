@@ -63,7 +63,7 @@ src/github.com/codegangsta/cli
 src/github.com/cloudfoundry/cf-acceptance-tests/
 
 # certs suite for locally running tests
-src/github.com/cloudfoundry-incubator/volume_driver_cert/
+src/code.cloudfoundry.org/volume_driver_cert/
 
 tags
 .tags
