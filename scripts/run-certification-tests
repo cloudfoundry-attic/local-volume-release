@@ -7,7 +7,7 @@ cd ..
 
 go build -o "$HOME/localdriver" "src/code.cloudfoundry.org/localdriver/cmd/localdriver/main.go"
 
-go get -t github.com/cloudfoundry-incubator/volume_driver_cert
+go get -t code.cloudfoundry.org/volume_driver_cert
 
 #=======================================================================================================================
 # localdriver runs in 4 different modes to test the 4 different transports we support.  This script tests all 4
@@ -16,7 +16,7 @@ go get -t github.com/cloudfoundry-incubator/volume_driver_cert
 # UNIX SOCKET TESTS
 export FIXTURE_FILENAME=$PWD/scripts/fixtures/certification_unix.json
 /bin/bash scripts/startdriver_unix.sh
-pushd src/github.com/cloudfoundry-incubator/volume_driver_cert
+pushd src/code.cloudfoundry.org/volume_driver_cert
     ginkgo
 popd
 /bin/bash scripts/stopdriver.sh
@@ -24,7 +24,7 @@ popd
 # TCP TESTS
 export FIXTURE_FILENAME=$PWD/scripts/fixtures/certification_tcp.json
 /bin/bash scripts/startdriver_tcp.sh
-pushd src/github.com/cloudfoundry-incubator/volume_driver_cert
+pushd src/code.cloudfoundry.org/volume_driver_cert
     ginkgo
 popd
 /bin/bash scripts/stopdriver.sh
@@ -32,7 +32,7 @@ popd
 # JSON SPEC TESTS
 export FIXTURE_FILENAME=$PWD/scripts/fixtures/certification_json.json
 /bin/bash scripts/startdriver_json.sh
-pushd src/github.com/cloudfoundry-incubator/volume_driver_cert
+pushd src/code.cloudfoundry.org/volume_driver_cert
     ginkgo
 popd
 /bin/bash scripts/stopdriver.sh
@@ -42,7 +42,7 @@ mkdir -p $HOME/certs
 cp scripts/certs/* $HOME/certs
 export FIXTURE_FILENAME=$PWD/scripts/fixtures/certification_json_tls.json
 /bin/bash scripts/startdriver_json_tls.sh
-pushd src/github.com/cloudfoundry-incubator/volume_driver_cert
+pushd src/code.cloudfoundry.org/volume_driver_cert
     ginkgo
 popd
 /bin/bash scripts/stopdriver.sh
