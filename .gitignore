@@ -59,14 +59,14 @@ src/github.com/vito/gosub
 # lol bet you were looking for this
 src/github.com/codegangsta/cli
 
-# CATS for locally running tests
-src/github.com/cloudfoundry/cf-acceptance-tests/
-
 # certs suite for locally running tests
 src/code.cloudfoundry.org/volume_driver_cert/
 
 tags
 .tags
 
-# built .test files from run-inigo compile check
-*.test
+# PATS test output
+src/code.cloudfoundry.org/results/
+
+# locally generated manifest file
+localvolume-boshlite-manifest.yml
