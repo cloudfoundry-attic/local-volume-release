@@ -20,7 +20,7 @@ absolute_path() {
 base_path=$(absolute_path `dirname $0`)
 
 
-source ${PERSI_ACCEPTANCE_DIR}/scripts/ci/utils.sh
+source ${scripts_path}/ci/utils.sh
 check_param CF_USERNAME
 check_param CF_PASSWORD
 check_param CF_API_ENDPOINT
