@@ -33,6 +33,6 @@ if [ -z "$APPLICATION_PATH" ]; then
     exit 1
 fi
 
-go install -v code.cloudfoundry.org/persi-acceptance-tests/vendor/github.com/onsi/ginkgo/ginkgo
+go get github.com/onsi/ginkgo/ginkgo
 
 ${scripts_path}/run-pats ${CF_USERNAME} ${CF_PASSWORD} ${CF_API_ENDPOINT} ${APPS_DOMAIN} ${base_path}/../../../${APPLICATION_PATH} ${NAME_PREFIX}
