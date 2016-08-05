@@ -46,7 +46,7 @@ pushd `dirname $0`
 
     export TEST_APPLICATION_PATH=$5
 
-    pushd ${scripts_path}/../src/code.cloudfoundry.org/persi-acceptance-tests
+    pushd  ../src/code.cloudfoundry.org/persi-acceptance-tests
         CONFIG=${CONFIG} ginkgo -p -r -v .
     popd
 popd
