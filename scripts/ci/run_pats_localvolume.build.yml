@@ -1,0 +1,17 @@
+---
+platform: linux
+
+image: docker:///cloudfoundry/inigo-ci
+
+inputs:
+  - name: local-volume-release
+
+params:
+  CF_USERNAME: replace-me
+  CF_PASSWORD: replace-me
+  CF_API_ENDPOINT: replace-me
+  APPS_DOMAIN: replace-me
+  APPLICATION_PATH: replace-me
+  NAME_PREFIX: localvolume
+run:
+  path: local-volume-release/scripts/ci/run_pats_withsetup
