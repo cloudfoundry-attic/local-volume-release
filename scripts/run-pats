@@ -35,21 +35,21 @@ pushd `dirname $0`
     fi
 
     echo "{
-      \"admin_user\": \"$1\",
-      \"admin_password\": \"$2\",
-      \"api\": \"$3\",
-      \"apps_domain\": \"$4\",
-      \"service_name\": \"$5\",
-      \"plan_name\": \"$6\",
-      \"broker_url\": \"$7\",
-      \"broker_user\": \"$8\",
-      \"broker_password\": \"$9\",
+      \"admin_user\": \"${1}\",
+      \"admin_password\": \"${2}\",
+      \"api\": \"${3}\",
+      \"apps_domain\": \"${4}\",
+      \"service_name\": \"${5}\",
+      \"plan_name\": \"${6}\",
+      \"broker_url\": \"${7}\",
+      \"broker_user\": \"${8}\",
+      \"broker_password\": \"${9}\",
       \"skip_ssl_validation\": true,
       \"default_timeout\": 30,
       \"name_prefix\": \"PATs\"
     } "  > ${CONFIG}
 
-    export TEST_APPLICATION_PATH=$10
+    export TEST_APPLICATION_PATH=${10}
 
     pushd  ../src/code.cloudfoundry.org/persi-acceptance-tests
         CONFIG=${CONFIG} ginkgo -p -r -v .
