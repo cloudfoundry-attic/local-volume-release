@@ -10,7 +10,7 @@ usage () {
     exit 1
 }
 
-if [[ "$#" -le 4 ]]
+if [[ "$#" -le 9 ]]
     then
         usage
 fi
