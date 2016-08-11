@@ -11,7 +11,12 @@ cat > /tmp/pats_integration_config.json <<EOF
   "apps_domain": "bosh-lite.com",
   "skip_ssl_validation": true,
   "use_http": true,
-  "backend": "diego"
+  "backend": "diego",
+  "service_name": "local-volume",
+  "plan_name": "free-local-disk",
+  "broker_url": "http://localbroker.bosh-lite.com",
+  "broker_user": "admin",
+  "broker_password": "admin"
 }
 EOF
 
