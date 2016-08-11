@@ -53,6 +53,7 @@ src/github.com/square
 src/github.com/dougm/
 src/github.com/rogpeppe/
 src/github.com/godoctor/
+src/github.com/lwoydziak/
 
 # gosub and friends
 src/github.com/vito/gosub
@@ -61,6 +62,7 @@ src/github.com/codegangsta/cli
 
 # certs suite for locally running tests
 src/code.cloudfoundry.org/volume_driver_cert/
+src/code.cloudfoundry.org/results/
 
 tags
 .tags

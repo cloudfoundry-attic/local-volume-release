@@ -94,3 +94,6 @@
 	path = src/github.com/cloudfoundry-incubator/cf-test-helpers
 	url = https://github.com/cloudfoundry-incubator/cf-test-helpers
 	branch = master
+[submodule "src/code.cloudfoundry.org/goshims"]
+	path = src/code.cloudfoundry.org/goshims
+	url = https://github.com/cloudfoundry-incubator/goshims
