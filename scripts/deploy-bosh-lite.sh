@@ -19,4 +19,4 @@ pushd ~/workspace/local-volume-release
     ./scripts/generate-bosh-lite-manifest.sh $(bosh status --uuid) https://192.168.50.4:25555 admin admin admin admin
 popd
 
-bosh -n -d ~/workspace/local-volume-release/manifests/bosh-lite/broker.yml deploy
+bosh -n -d ~/workspace/local-volume-release/localvolume-boshlite-manifest.yml deploy
