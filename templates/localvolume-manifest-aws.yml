@@ -18,8 +18,6 @@ jobs:
   networks:
   - name: localvolume-subnet
     default: [dns, gateway]
-  - name: public
-    static_ips: [52.205.244.140]
   resource_pool: medium
   templates:
   - release: local-volume
@@ -53,8 +51,6 @@ jobs:
   networks:
   - name: localvolume-subnet
     default: [dns, gateway]
-  - name: public
-    static_ips: [52.205.231.171]
   resource_pool: medium
   templates:
   - release: local-volume
