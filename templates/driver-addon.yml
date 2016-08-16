@@ -1,0 +1,12 @@
+---
+releases:
+- name: local-volume
+  version: 0+dev.18
+addons:
+- name: volume-driver
+  jobs:
+  - name: localdriver
+    release: local-volume
+#  properties:
+#    strongswan:
+#      ca_cert: ...
