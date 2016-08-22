@@ -44,7 +44,7 @@ func hello(res http.ResponseWriter, req *http.Request) {
 func write(res http.ResponseWriter, req *http.Request) {
 	vcapEnv := os.Getenv("VCAP_SERVICES")
 
-	r, err := regexp.Compile("\"container_path\": \"([^\"]+)\"")
+	r, err := regexp.Compile("\"container_dir\": \"([^\"]+)\"")
 	if err != nil {
 		panic(err)
 	}
@@ -52,7 +52,7 @@ func write(res http.ResponseWriter, req *http.Request) {
 	match := r.FindStringSubmatch(vcapEnv)
 	if len(match) < 2 {
 		fmt.Fprintf(os.Stderr, "VCAP_SERVICES is %s", vcapEnv)
-		panic("failed to find container_path in environment json")
+		panic("failed to find container_dir in environment json")
 	}
 
 	mountPointPath := match[1] + "/test.txt"
