@@ -3,7 +3,7 @@
 
 set -e
 
-cd local-volumeck-release/
+cd local-volume-release/
 
 export GOROOT=/usr/local/go
 export PATH=$GOROOT/bin:$PATH
@@ -13,4 +13,4 @@ export PATH=$PWD/bin:$PATH
 
 go install github.com/onsi/ginkgo/ginkgo
 
-./scripts/run-driver-unit-tests -race
+./scripts/run-broker-unit-tests -race

@@ -1,0 +1,10 @@
+---
+platform: linux
+
+image: docker:///cloudfoundry/inigo-ci
+
+inputs:
+  - name: local-volume-release
+
+run:
+  path: local-volume-release/scripts/ci/run_broker_unit
