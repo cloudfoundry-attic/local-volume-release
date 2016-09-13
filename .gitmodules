@@ -57,10 +57,6 @@
 	path = src/github.com/cloudfoundry-incubator/localbroker
 	url = https://github.com/cloudfoundry-incubator/localbroker
 	branch = master
-[submodule "src/github.com/pivotal-cf/brokerapi"]
-	path = src/github.com/pivotal-cf/brokerapi
-	url = https://github.com/lwoydziak/brokerapi
-	branch = master
 [submodule "src/github.com/gorilla/context"]
 	path = src/github.com/gorilla/context
 	url = https://github.com/gorilla/context
@@ -97,3 +93,6 @@
 [submodule "src/code.cloudfoundry.org/goshims"]
 	path = src/code.cloudfoundry.org/goshims
 	url = https://github.com/cloudfoundry-incubator/goshims
+[submodule "src/github.com/pivotal-cf/brokerapi"]
+	path = src/github.com/pivotal-cf/brokerapi
+	url = https://github.com/lwoydziak/brokerapi
