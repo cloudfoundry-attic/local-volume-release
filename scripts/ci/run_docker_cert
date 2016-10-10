@@ -13,3 +13,5 @@ cd local-volume-release/
 
     ./scripts/run-docker-tests
 cd -
+
+service docker stop
