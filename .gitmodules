@@ -49,7 +49,7 @@
 [submodule "src/code.cloudfoundry.org/lager"]
 	path = src/code.cloudfoundry.org/lager
 	url = https://github.com/paulcwarren/lager
-	branch = context
+	branch = master
 [submodule "src/github.com/cloudfoundry-incubator/localbroker"]
 	path = src/github.com/cloudfoundry-incubator/localbroker
 	url = https://github.com/cloudfoundry-incubator/localbroker
@@ -81,6 +81,7 @@
 [submodule "src/code.cloudfoundry.org/localbroker"]
 	path = src/code.cloudfoundry.org/localbroker
 	url = https://github.com/cloudfoundry-incubator/localbroker
+	branch = master
 [submodule "src/code.cloudfoundry.org/persi-acceptance-tests"]
 	path = src/code.cloudfoundry.org/persi-acceptance-tests
 	url = https://github.com/cloudfoundry-incubator/persi-acceptance-tests
