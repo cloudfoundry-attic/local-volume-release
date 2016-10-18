@@ -12,8 +12,8 @@ files:
   - code.cloudfoundry.org/clock/*.go # gosub
   - code.cloudfoundry.org/debugserver/*.go # gosub
   - code.cloudfoundry.org/goshims/http_wrap/*.go # gosub
-  - code.cloudfoundry.org/goshims/ioutil/*.go # gosub
-  - code.cloudfoundry.org/goshims/os/*.go # gosub
+  - code.cloudfoundry.org/goshims/ioutilshim/*.go # gosub
+  - code.cloudfoundry.org/goshims/osshim/*.go # gosub
   - code.cloudfoundry.org/lager/*.go # gosub
   - code.cloudfoundry.org/localbroker/cmd/localbroker/*.go # gosub
   - code.cloudfoundry.org/localbroker/localbroker/*.go # gosub
