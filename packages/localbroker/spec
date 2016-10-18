@@ -19,6 +19,7 @@ files:
   - code.cloudfoundry.org/localbroker/localbroker/*.go # gosub
   - code.cloudfoundry.org/localbroker/utils/*.go # gosub
   - code.cloudfoundry.org/voldriver/*.go # gosub
+  - code.cloudfoundry.org/voldriver/backoff/*.go # gosub
   - code.cloudfoundry.org/voldriver/driverhttp/*.go # gosub
   - github.com/bmizerany/pat/*.go # gosub
   - github.com/gorilla/context/*.go # gosub
