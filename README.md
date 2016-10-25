@@ -65,7 +65,7 @@ This is a bosh release that packages a [localdriver](https://github.com/cloudfou
     cd ~/workspace
     git clone https://github.com/cloudfoundry-incubator/local-volume-release.git
     cd ~/workspace/local-volume-release
-    git checkout mastercd ../diego  
+    git checkout master
     ./scripts/update
     bosh -n create release --force && bosh -n upload release
     ```
