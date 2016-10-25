@@ -54,7 +54,7 @@ This is a bosh release that packages a [localdriver](https://github.com/cloudfou
     cd ~/workspace
     git clone https://github.com/cloudfoundry/diego-release.git
     cd ~/workspace/diego-release
-    git checkout develcd ../loc op 
+    git checkout develop 
     ./scripts/update
     bosh -n create release --force && bosh -n upload release
     ```
