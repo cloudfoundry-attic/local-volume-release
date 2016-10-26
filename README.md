@@ -101,9 +101,3 @@ This is a bosh release that packages a [localdriver](https://github.com/cloudfou
     cf start pora
     ```
 
-The localbroker, as it stands, keeps all state in memory. This means that bosh deploys will leave the broker out of sync with cc. To fix this:
-
-    ```bash
-    cf purge-service-instance local-volume-instance
-    cf create-service local-volume free-local-disk local-volume-instance
-    ```
