@@ -6,5 +6,9 @@ DATA_DIR=<%= p("localdriver.driver_path") %>
 mkdir -p $DATA_DIR
 chown vcap:vcap $DATA_DIR
 
-echo "Installed localdriver path"
+MOUNT_DIR=<%= p("localdriver.cell_mount_path") %>
+mkdir -p $MOUNT_DIR
+chown vcap:vcap $MOUNT_DIR
+
+echo "Installed localdriver paths"
 exit 0
