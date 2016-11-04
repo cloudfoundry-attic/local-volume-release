@@ -3,7 +3,7 @@
 ###### find the release version of the local-volume bosh release
 bosh --non-interactive target ${1}
 bosh login ${2} ${3}
-version=`bosh releases | grep local-volume | awk '{print $4}'`
+version=`bosh releases | grep local-volume | awk '{gsub(/\*/, ""); print $4}'`
 if [[ "$version" == "|" ]] || [[ "$version" == "" ]]; then
       echo "local-volume release appears not to be uploaded to bosh"
       exit 1
