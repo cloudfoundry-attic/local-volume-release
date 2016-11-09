@@ -20,13 +20,10 @@ This is a bosh release that packages a [localdriver](https://github.com/cloudfou
     `curl -L -o bosh-lite-stemcell-latest.tgz https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent
     bosh upload stemcell bosh-lite-stemcell-latest.tgz`
 
-2. Upload the latest garden-linux-release OR garden-runc-release:
+2. Upload the latest garden-runc-release:
    
-    ```
-    bosh upload release https://bosh.io/d/github.com/cloudfoundry-incubator/garden-linux-release
-    
-    # if you specified [-g] when you generated your manifest:
-    # bosh upload release https://bosh.io/d/github.com/cloudfoundry-incubator/garden-runc-release
+    ```bash
+    bosh upload release https://bosh.io/d/github.com/cloudfoundry-incubator/garden-runc-release
     ```
 
 3. Upload the latest etcd-release:
@@ -39,7 +36,7 @@ This is a bosh release that packages a [localdriver](https://github.com/cloudfou
 
 5. Check out cf-release (release-candidate branch or tagged release) from git:
 
-    ```
+    ```bash
     cd ~/workspace
     git clone https://github.com/cloudfoundry/cf-release.git
     cd ~/workspace/cf-release
@@ -50,7 +47,7 @@ This is a bosh release that packages a [localdriver](https://github.com/cloudfou
 
 6. Check out diego-release (master branch or tagged release) from git:
 
-    ```
+    ```bash
     cd ~/workspace
     git clone https://github.com/cloudfoundry/diego-release.git
     cd ~/workspace/diego-release
@@ -61,7 +58,7 @@ This is a bosh release that packages a [localdriver](https://github.com/cloudfou
 
 7. Check out local-volume-release (master branch) from git:
 
-    ```
+    ```bash
     cd ~/workspace
     git clone https://github.com/cloudfoundry-incubator/local-volume-release.git
     cd ~/workspace/local-volume-release
@@ -81,7 +78,7 @@ This is a bosh release that packages a [localdriver](https://github.com/cloudfou
 
 ## Register local-broker
 
-    ```
+    ```bash
     # optionaly delete previous broker:
     cf delete-service-broker localbroker
     
