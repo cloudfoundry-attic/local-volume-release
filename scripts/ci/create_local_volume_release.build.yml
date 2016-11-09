@@ -10,10 +10,7 @@ inputs:
 outputs:
   - name: created-local-volume-release
 
-params:
-  BOSH_TARGET: replace-me
-  BOSH_USERNAME: replace-me
-  BOSH_PASSWORD: replace-me
+params: []
 
 run:
   path: local-volume-release/scripts/ci/create_local_volume_release

@@ -3,18 +3,9 @@
 
 set -x -e
 
-source $(pwd)/local-volume-release/scripts/ci/utils.sh
-check_param BOSH_TARGET
-check_param BOSH_USERNAME
-check_param BOSH_PASSWORD
-
 version=`cat local-volume-version/number`
 pushd local-volume-release
 
 bosh -n --parallel 10 create release --version $version --name local-volume --force --with-tarball
-
-bosh -n target ${BOSH_TARGET}
-bosh -n login ${BOSH_USERNAME} ${BOSH_PASSWORD}
-bosh upload release dev_releases/local-volume/local-volume*.tgz
 mv dev_releases/local-volume/local-volume-$version.tgz ../created-local-volume-release/localvolume-$version.tgz
 popd
