@@ -66,10 +66,6 @@
 [submodule "src/github.com/cloudfoundry-incubator/persi-acceptance-tests"]
 	path = src/github.com/cloudfoundry-incubator/persi-acceptance-tests
 	url = https://github.com/cloudfoundry-incubator/persi-acceptance-tests/
-[submodule "src/golang.org/x/crypto"]
-	path = src/golang.org/x/crypto
-	url = https://go.googlesource.com/crypto
-	branch = master
 [submodule "src/code.cloudfoundry.org/voldriver"]
 	path = src/code.cloudfoundry.org/voldriver
 	url = https://github.com/cloudfoundry-incubator/voldriver
