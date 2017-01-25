@@ -22,4 +22,4 @@ EOF
 
 TEST_APPLICATION_PATH=${release_dir}/src/code.cloudfoundry.org/persi-acceptance-tests/assets/pora/ \
 CONFIG=/tmp/pats_integration_config.json \
-ginkgo -p ${release_dir}/src/code.cloudfoundry.org/persi-acceptance-tests
+ginkgo --slowSpecThreshold=300 -p ${release_dir}/src/code.cloudfoundry.org/persi-acceptance-tests
