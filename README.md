@@ -97,4 +97,9 @@ This is a bosh release that packages a [localdriver](https://github.com/cloudfou
     
     cf start pora
     ```
+> ####Bind Parameters####
+> * **mount:** By default, volumes are mounted into the application container in an arbitrarily named folder under /var/vcap/data.  If you prefer to mount your directory to some specific path where your application expects it, you can control the container mount path by specifying the `mount` option.  The resulting bind command would look something like 
+> ``` cf bind-service pora local-volume-instance -c '{"mount":"/my/path"}'```
 
+# Troubleshooting
+If you have trouble getting this release to operate properly, try consulting the [Volume Services Troubleshooting Page](https://github.com/cloudfoundry-incubator/volman/blob/master/TROUBLESHOOTING.md)
