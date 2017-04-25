@@ -12,40 +12,7 @@ compilation:
       size: 10000 # in MB
       type: gp2
 jobs:
-- name: localbroker-pats
-  instances: 1
-  log_level: debug
-  networks:
-  - name: localvolume-subnet
-    default: [dns, gateway]
-  resource_pool: medium
-  templates:
-  - release: local-volume
-    name: localbroker
-  - release: cf
-    name: route_registrar
-  persistent_disk: 25000
-  properties:
-    localbroker:
-      service-id: localvolume-ginkgoPATS-pats-local-volume
-      service-name: localvolume-ginkgoPATS-pats-service
-      plan-name: localvolume-ginkgoPATS-pats-plan
-      plan-id: localvolume-ginkgoPATS-pats-plan-id
-      data-dir: /var/vcap/store/pats-localbroker
-      username: (( merge ))
-      password: (( merge ))
-    route_registrar:
-      routes:
-      - name: pats-local-broker
-        port: 8999
-        registration_interval: 20s
-        tags:
-          component: pats-local-broker
-        uris:
-        - pats-broker.localvolume-ginkgoPATS.persi.cf-app.com
-
-
-- name: localbroker-acc
+- name: localbroker
   instances: 1
   log_level: debug
   networks:
@@ -61,10 +28,12 @@ jobs:
   properties:
     localbroker:
       service-id: local-volume
-      service-name: local-volume
-      plan-name: free-local-dist
-      plan-id: free
-      data-dir: /var/vcap/store/pats-localbroker
+      service-name: local-service
+      plan-name: local-plan
+      plan-id: local-plan-id
+      data-dir: /var/vcap/store/localbroker
+      username: (( merge ))
+      password: (( merge ))
     route_registrar:
       routes:
       - name: local-broker
@@ -74,7 +43,6 @@ jobs:
           component: local-broker
         uris:
         - local-broker.persi.cf-app.com
-
 networks:
 - name: localvolume-subnet
   subnets:
@@ -97,11 +65,9 @@ networks:
     static:
     - 10.10.200.10 - 10.10.200.105
   type: manual
-- name: public
-  type: vip
 properties:
   localbroker:
-    plan-desc: free local filesystem for bosh-lite
+    plan-desc: free local filesystem
     localdriver-url: (( merge ))
   nats: (( merge ))
 releases:
