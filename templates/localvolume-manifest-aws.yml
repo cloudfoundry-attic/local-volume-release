@@ -18,7 +18,7 @@ jobs:
   networks:
   - name: localvolume-subnet
     default: [dns, gateway]
-  resource_pool: medium
+  resource_pool: small
   templates:
   - release: local-volume
     name: localbroker
@@ -92,6 +92,15 @@ resource_pools:
       version: latest
     cloud_properties:
       instance_type: m3.medium
+      availability_zone: us-east-1c
+
+  - name: small
+    network: localvolume-subnet
+    stemcell:
+      name: bosh-aws-xen-hvm-ubuntu-trusty-go_agent
+      version: latest
+    cloud_properties:
+      instance_type: t2.micro
       availability_zone: us-east-1c
 update:
   canaries: 1
