@@ -1,7 +1,7 @@
 ---
 platform: linux
 
-image: docker:///cloudfoundry/docker-plus-go
+rootfs_uri: docker:///cloudfoundry/docker-plus-go
 
 inputs:
   - name: local-volume-release
