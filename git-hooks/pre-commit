@@ -2,8 +2,6 @@
 
 set -e
 
-git secrets --pre_commit_hook -- "$@"
-
 modified_packages=$(./scripts/sync-package-specs)
 
 if [ -n "$modified_packages" ]; then
