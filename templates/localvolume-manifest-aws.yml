@@ -68,7 +68,6 @@ networks:
 properties:
   localbroker:
     plan-desc: free local filesystem
-    localdriver-url: (( merge ))
   nats: (( merge ))
 releases:
   - name: local-volume

@@ -73,7 +73,6 @@ networks:
 properties:
   localbroker:
     plan-desc: free local filesystem for bosh-lite
-    localdriver-url: (( merge ))
   nats:
     machines:
     - 10.244.0.6
