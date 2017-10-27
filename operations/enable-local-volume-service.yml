@@ -42,6 +42,8 @@
           plan-desc: free local filesystem for bosh-lite
           plan-id: free
           data-dir: /var/vcap/store/pats-localbroker
+          username: admin
+          password: ((local-broker-password))
     - name: route_registrar
       release: routing
       properties:
