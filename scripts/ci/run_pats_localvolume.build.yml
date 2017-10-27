@@ -5,13 +5,18 @@ rootfs_uri: docker:///cloudfoundry/diego-pipeline
 
 inputs:
   - name: local-volume-release
+  - name: vars-store
 
 params:
   CF_USERNAME: replace-me
-  CF_PASSWORD: replace-me
+  CF_PASSWORD:
   CF_API_ENDPOINT: replace-me
   APPS_DOMAIN: replace-me
   APPLICATION_PATH: replace-me
   NAME_PREFIX: localvolume
+  BROKER_URL: replace-me
+  BROKER_USER: replace-me
+  BROKER_PASSWORD:
+  BROKER_PASSWORD_KEY: local-broker-password
 run:
   path: local-volume-release/scripts/ci/run_pats_withsetup
