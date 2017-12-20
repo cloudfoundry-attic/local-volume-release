@@ -5,11 +5,11 @@ dependencies:
 - golang-localvolume
 
 files:
-  - code.cloudfoundry.org/cflager/*.go # gosub
   - code.cloudfoundry.org/debugserver/*.go # gosub
   - code.cloudfoundry.org/goshims/ioutilshim/*.go # gosub
   - code.cloudfoundry.org/goshims/osshim/*.go # gosub
   - code.cloudfoundry.org/lager/*.go # gosub
+  - code.cloudfoundry.org/lager/lagerflags/*.go # gosub
   - code.cloudfoundry.org/localbroker/cmd/localbroker/*.go # gosub
   - code.cloudfoundry.org/localbroker/localbroker/*.go # gosub
   - code.cloudfoundry.org/localbroker/utils/*.go # gosub
