@@ -1,88 +1,86 @@
 # local volume release
-This is a bosh release that packages a [localdriver](https://github.com/cloudfoundry-incubator/localdriver) and a [localbroker](https://github.com/cloudfoundry-incubator/localbroker) for consumption by a volman-enabled Cloud Foundry deployment.
+This is a bosh release that packages a [localdriver](https://github.com/cloudfoundry-incubator/localdriver) and a [localbroker](https://github.com/cloudfoundry-incubator/localbroker) for consumption by a Cloud Foundry deployment.
 
-# Deploying to Bosh-Lite
+local-volume-release is a "dummy" volume release that exposes ephemeral storage on the diego cell as a volume in cloud-foundry.  As such it is really only suitable for experimenting with apps that require volumes.  The easiest way to consume local-volume-release is to install [PCFDev](https://docs.pivotal.io/pcf-dev/) which comes with local-volume-release already included.
+
+The instructions below will help you should you desire to install local-volume-release into your own Cloud Foundry deployment.
+
+# Deploying local-volume-release with Cloud Foundry
 
 ## Pre-requisites
 
-1. Install and start [BOSH-Lite](https://github.com/cloudfoundry/bosh-lite), following its [README](https://github.com/cloudfoundry/bosh-lite/blob/master/README.md).  For garden-linux to function properly in the Diego deployment, we recommend using version 9000.69.0 or later of the BOSH-Lite Vagrant box image.
+1. Install Cloud Foundry, or start from an existing CF deployment.  If you are starting from scratch, the article [Deploying CF and Diego to AWS](https://docs.cloudfoundry.org/deploying/index.html) provides detailed instructions.
 
-2. Install spiff according to its [README](https://github.com/cloudfoundry-incubator/spiff). spiff is a tool for generating BOSH manifests that is required in some of the scripts used below.
-
-## Create and Upload Releases
-
-1. Upload the latest version of the Warden BOSH-Lite stemcell directly to BOSH-Lite:
-
-    `bosh upload stemcell https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent`
-
-    Alternately, download the stemcell locally first and then upload it to BOSH-Lite:
-    
-    `curl -L -o bosh-lite-stemcell-latest.tgz https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent
-    bosh upload stemcell bosh-lite-stemcell-latest.tgz`
-
-2. Upload the latest garden-runc-release:
-   
-    ```bash
-    bosh upload release https://bosh.io/d/github.com/cloudfoundry-incubator/garden-runc-release
-    ```
-
-3. Upload the latest etcd-release:
-
-    `bosh upload release https://bosh.io/d/github.com/cloudfoundry-incubator/etcd-release`
-
-4. Upload the latest cflinuxfs2-rootfs-release:
-
-    `bosh upload release https://bosh.io/d/github.com/cloudfoundry/cflinuxfs2-rootfs-release`
-
-5. Check out cf-release (release-candidate branch or tagged release) from git:
+1. Install [GO](https://golang.org/dl/):
 
     ```bash
+    mkdir ~/workspace ~/go
     cd ~/workspace
-    git clone https://github.com/cloudfoundry/cf-release.git
-    cd ~/workspace/cf-release
-    git checkout release-candidate # do not push to release-candidate
-    ./scripts/update
-    bosh -n create release --force && bosh -n upload release
+    wget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz
+    sudo tar -C /usr/local -xzf go1.9.linux-amd64.tar.gz
+    echo 'export GOPATH=$HOME/go' >> ~/.bashrc
+    echo 'export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin' >> ~/.bashrc
+    exec $SHELL
     ```
 
-6. Check out diego-release (master branch or tagged release) from git:
+1. Install [direnv](https://github.com/direnv/direnv#from-source):
 
     ```bash
-    cd ~/workspace
-    git clone https://github.com/cloudfoundry/diego-release.git
-    cd ~/workspace/diego-release
-    git checkout develop 
-    ./scripts/update
-    bosh -n create release --force && bosh -n upload release
+    mkdir -p $GOPATH/src/github.com/direnv
+    git clone https://github.com/direnv/direnv.git $GOPATH/src/github.com/direnv/direnv
+    pushd $GOPATH/src/github.com/direnv/direnv
+        make
+        sudo make install
+    popd
+    echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
+    exec $SHELL
     ```
 
-7. Check out local-volume-release (master branch) from git:
+## Create and Upload this Release
+
+1. Check out local-volume-release (master branch) from git:
 
     ```bash
     cd ~/workspace
     git clone https://github.com/cloudfoundry-incubator/local-volume-release.git
     cd ~/workspace/local-volume-release
+    direnv allow
     git checkout master
     ./scripts/update
-    bosh -n create release --force && bosh -n upload release
+    bosh -n create-release --force 
+    bosh -n upload-release
     ```
 
-## Generate Manifests and Deploy
+## Redeploy Cloud Foundry with local-volume-release enabled
 
-8. Execute the following script to generate all manifests and deploy:-
+1. You should have it already after deploying Cloud Foundry, but if not clone the cf-deployment repository from git:
 
     ```bash
-    cd ~/workspace/local-volume-release
-    ./scripts/deploy-bosh-lite.sh
+    $ cd ~/workspace
+    $ git clone https://github.com/cloudfoundry/cf-deployment.git
+    $ cd ~/workspace/cf-deployment
+    ```
+
+2. Now redeploy your cf-deployment while including the local-volume-release ops file:
+    ```bash
+    $ bosh -e my-env -d cf deploy cf.yml \
+    -v deployment-vars.yml \ 
+    -o ../efs-volume-release/operations/enable-local-volume-service.yml
+    ```
+    
+**Note:** the above command is an example, but your deployment command should match the one you used to deploy Cloud Foundry initially, with the addition of a `-o ../local-volume-release/operations/enable-local-volume-service.yml` option.
+
+Your CF deployment will now have a running service broker and volume drivers, ready to create and mount local "volumes".  Unless you have explicitly defined a variable for your service broker password, BOSH will generate one for you.  
+If you let BOSH generate the efsbroker password for you, you can find the password for use in broker registration via the `bosh interpolate` command:
+    ```bash
+    # BOSH CLI v2
+    bosh int deployment-vars.yml --path /local-broker-password
     ```
 
 ## Register local-broker
 
     ```bash
-    # optionaly delete previous broker:
-    cf delete-service-broker localbroker
-    
-    cf create-service-broker localbroker admin admin http://localbroker.bosh-lite.com
+    cf create-service-broker localbroker admin <PASSWORD> http://localbroker.YOUR.DOMAIN.com
     cf enable-service-access local-volume
     ```
 
@@ -97,9 +95,13 @@ This is a bosh release that packages a [localdriver](https://github.com/cloudfou
     
     cf start pora
     ```
-> ####Bind Parameters####
+> #### Bind Parameters
 > * **mount:** By default, volumes are mounted into the application container in an arbitrarily named folder under /var/vcap/data.  If you prefer to mount your directory to some specific path where your application expects it, you can control the container mount path by specifying the `mount` option.  The resulting bind command would look something like 
-> ``` cf bind-service pora local-volume-instance -c '{"mount":"/my/path"}'```
+> ``` cf bind-service pora local-volume-instance -c '{"mount":"/var/foo"}'```
+
+## Test the app to make sure that it can access your volume
+* to check if the app is running, `curl http://pora.YOUR.DOMAIN.com` should return the instance index for your app
+* to check if the app can access the shared volume `curl http://pora.YOUR.DOMAIN.com/write` writes a file to the share and then reads it back out again.
 
 # Troubleshooting
 If you have trouble getting this release to operate properly, try consulting the [Volume Services Troubleshooting Page](https://github.com/cloudfoundry-incubator/volman/blob/master/TROUBLESHOOTING.md)
