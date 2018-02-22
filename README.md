@@ -9,7 +9,7 @@ The instructions below will help you should you desire to install local-volume-r
 
 ## Pre-requisites
 
-1. Install Cloud Foundry, or start from an existing CF deployment.  If you are starting from scratch, the article [Deploying CF and Diego to AWS](https://docs.cloudfoundry.org/deploying/index.html) provides detailed instructions.
+1. Install Cloud Foundry, or start from an existing CF deployment.  If you are starting from scratch, the article [Overview of Deploying Cloud Foundry](https://docs.cloudfoundry.org/deploying/index.html) provides detailed instructions.
 
 1. Install [GO](https://golang.org/dl/):
 
@@ -42,7 +42,7 @@ The instructions below will help you should you desire to install local-volume-r
 
     ```bash
     cd ~/workspace
-    git clone https://github.com/cloudfoundry-incubator/local-volume-release.git
+    git clone https://github.com/cloudfoundry/local-volume-release.git
     cd ~/workspace/local-volume-release
     direnv allow
     git checkout master
@@ -72,29 +72,26 @@ The instructions below will help you should you desire to install local-volume-r
 
 Your CF deployment will now have a running service broker and volume drivers, ready to create and mount local "volumes".  Unless you have explicitly defined a variable for your service broker password, BOSH will generate one for you.  
 If you let BOSH generate the efsbroker password for you, you can find the password for use in broker registration via the `bosh interpolate` command:
-    ```bash
-    # BOSH CLI v2
-    bosh int deployment-vars.yml --path /local-broker-password
-    ```
+ 
+```
+bosh int deployment-vars.yml --path /local-broker-password
+```
 
 ## Register local-broker
 
-    ```bash
-    cf create-service-broker localbroker admin <PASSWORD> http://localbroker.YOUR.DOMAIN.com
-    cf enable-service-access local-volume
-    ```
+```bash
+cf create-service-broker localbroker admin <PASSWORD> http://local-broker.YOUR.DOMAIN.com
+cf enable-service-access local-volume
+```
 
 ## Deploy pora and test volume services
 
-    ```bash
-    cf create-service local-volume free-local-disk local-volume-instance
-    
-    cf push pora -f ./assets/pora/manifest.yml -p ./assets/pora/ --no-start
-    
-    cf bind-service pora local-volume-instance
-    
-    cf start pora
-    ```
+```bash
+cf create-service local-volume free-local-disk local-volume-instance
+cf push pora -f ./assets/pora/manifest.yml -p ./assets/pora/ --no-start
+cf bind-service pora local-volume-instance
+cf start pora
+```
 > #### Bind Parameters
 > * **mount:** By default, volumes are mounted into the application container in an arbitrarily named folder under /var/vcap/data.  If you prefer to mount your directory to some specific path where your application expects it, you can control the container mount path by specifying the `mount` option.  The resulting bind command would look something like 
 > ``` cf bind-service pora local-volume-instance -c '{"mount":"/var/foo"}'```
