@@ -17,6 +17,7 @@ files:
   - code.cloudfoundry.org/lager/lagerflags/*.go # gosub
   - code.cloudfoundry.org/localdriver/*.go # gosub
   - code.cloudfoundry.org/localdriver/cmd/localdriver/*.go # gosub
+  - code.cloudfoundry.org/localdriver/oshelper/*.go # gosub
   - code.cloudfoundry.org/voldriver/*.go # gosub
   - code.cloudfoundry.org/voldriver/backoff/*.go # gosub
   - code.cloudfoundry.org/voldriver/driverhttp/*.go # gosub
