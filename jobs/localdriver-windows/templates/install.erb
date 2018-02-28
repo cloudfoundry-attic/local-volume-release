@@ -1,0 +1,10 @@
+. ./exiter.ps1
+
+$ErrorActionPreference = "Stop";
+trap { $host.SetShouldExit(1) }
+
+New-Item -ItemType "directory" -Force "<%= p("localdriver.driver_path") %>"
+New-Item -ItemType "directory" -Force "<%= p("localdriver.cell_mount_path") %>"
+
+echo "Installed localdriver paths"
+Exit 0
