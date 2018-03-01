@@ -49,7 +49,14 @@ pushd `dirname $0`
       \"name_prefix\": \"PATs\"
     } "  > ${CONFIG}
 
-    export TEST_APPLICATION_PATH="${PWD}/../src/code.cloudfoundry.org/persi-acceptance-tests/assets/pora"
+    if [[ ${TEST_WINDOWS_CELL} == "true" ]]; then
+        export TEST_APPLICATION_PATH="${PWD}/../src/code.cloudfoundry.org/persi-acceptance-tests/assets/pora-windows"
+    elif [[ ${TEST_WINDOWS_CELL} == "false" ]]; then
+        export TEST_APPLICATION_PATH="${PWD}/../src/code.cloudfoundry.org/persi-acceptance-tests/assets/pora"
+    else
+        echo "TEST_WINDOWS_CELL should only be set as true or false"
+        exit 1
+    fi
 
     pushd  ../src/code.cloudfoundry.org/persi-acceptance-tests
         CONFIG=${CONFIG} ginkgo -r  --slowSpecThreshold=300 .
