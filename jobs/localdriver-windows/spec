@@ -17,10 +17,10 @@ properties:
     default: "0.0.0.0:9189"
   localdriver.driver_path:
     description: "path to place driver spec/json file for volman to discover"
-    default: "C:\\\var\\\vcap\\\data\\\voldrivers"
+    default: "C:\\\\var\\\\vcap\\\\data\\\\voldrivers"
   localdriver.cell_mount_path:
     description: "path to mount volumes into on the cell"
-    default: "C:\\\var\\\vcap\\\data\\\volumes\\\local"
+    default: "C:\\\\var\\\\vcap\\\\data\\\\volumes\\\\local"
   localdriver.log_level:
     description: "localdriver log level"
     default: "info"
