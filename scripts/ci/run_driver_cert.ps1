@@ -12,7 +12,7 @@ go build -o "./localdriver" "src/code.cloudfoundry.org/localdriver/cmd/localdriv
 
 go get -t code.cloudfoundry.org/volume_driver_cert
 
-$env:FIXTURE_FILENAME=$PWD/scripts/fixtures/certification_tcp.json
+$env:FIXTURE_FILENAME="$PWD/scripts/fixtures/certification_tcp.json"
 
 mkdir voldriver_plugins
 mkdir mountdir
