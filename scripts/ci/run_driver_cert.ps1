@@ -16,7 +16,7 @@ $env:FIXTURE_FILENAME="$PWD/scripts/fixtures/certification_tcp.json"
 
 mkdir voldriver_plugins
 mkdir mountdir
-Start-Process -NoNewWindow ./localdriver -listenAddr="0.0.0.0:9776" -transport="tcp" -mountDir="./mountdir" -driversPath="./voldriver_plugins"
+Start-Process -NoNewWindow ./localdriver "-listenAddr=0.0.0.0:9776 -transport=tcp -mountDir=mountdir -driversPath=voldriver_plugins"
 
 cd src/code.cloudfoundry.org/volume_driver_cert
 ginkgo
