@@ -19,6 +19,6 @@ mkdir mountdir
 Start-Process -NoNewWindow ./localdriver "-listenAddr=0.0.0.0:9776 -transport=tcp -mountDir=mountdir -driversPath=voldriver_plugins"
 
 cd src/code.cloudfoundry.org/volume_driver_cert
-ginkgo
+ginkgo -skip fixture
 
 Stop-Process -Name "localdriver"
