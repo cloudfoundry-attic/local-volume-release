@@ -6,6 +6,6 @@ set -x -e
 version=`cat local-volume-version/number`
 pushd local-volume-release
 
-bosh -n --parallel 10 create release --version $version --name local-volume --force --with-tarball
+bosh -n create-release --tarball=dev_releases/local-volume/local-volume-$version.tgz --version $version --name local-volume --force
 mv dev_releases/local-volume/local-volume-$version.tgz ../created-local-volume-release/localvolume-$version.tgz
 popd
