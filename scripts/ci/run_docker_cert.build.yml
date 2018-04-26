@@ -1,7 +1,11 @@
 ---
 platform: linux
 
-rootfs_uri: docker:///cloudfoundry/docker-plus-go
+image_resource:
+  type: docker-image
+  source:
+    repository: cloudfoundry/docker-plus-go
+    tag: latest
 
 inputs:
   - name: local-volume-release
