@@ -35,7 +35,7 @@ if [ -z "$CF_PASSWORD" ]; then
     persi-ci/scripts/ci/bbl_get_bosh_env
     source bosh-env/set-env.sh
 
-    bosh_manifest_password_variable_name=$BROKER_PASSWORD_KEY
+    bosh_manifest_password_variable_name=cf_admin_password
     CF_PASSWORD=`credhub find -j -n ${bosh_manifest_password_variable_name} | jq -r .credentials[].name | xargs credhub get -j -n | jq -r .value`
 fi
 
@@ -43,7 +43,7 @@ if [ -z "$BROKER_PASSWORD" ]; then
     persi-ci/scripts/ci/bbl_get_bosh_env
     source bosh-env/set-env.sh
 
-    bosh_manifest_password_variable_name=csi-nfsbroker-password
+    bosh_manifest_password_variable_name=$BROKER_PASSWORD_KEY
     BROKER_PASSWORD=`credhub find -j -n ${bosh_manifest_password_variable_name} | jq -r .credentials[].name | xargs credhub get -j -n | jq -r .value`
 fi
 
