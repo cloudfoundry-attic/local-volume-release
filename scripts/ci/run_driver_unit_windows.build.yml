@@ -3,6 +3,7 @@ platform: windows
 
 inputs:
 - name: local-volume-release
+- name: local-volume-release-concourse-tasks
 
 run:
   path: powershell
@@ -10,4 +11,4 @@ run:
     - "-ExecutionPolicy"
     - "ByPass"
     - "-File"
-    - "local-volume-release/scripts/ci/run_driver_unit.ps1"
+    - "local-volume-release-concourse-tasks/scripts/ci/run_driver_unit.ps1"

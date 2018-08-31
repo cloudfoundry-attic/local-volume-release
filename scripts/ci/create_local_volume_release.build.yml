@@ -5,6 +5,7 @@ rootfs_uri: docker:///cloudfoundry/diego-pipeline
 
 inputs:
   - name: local-volume-release
+  - name: local-volume-release-concourse-tasks
   - name: local-volume-version
 
 outputs:
@@ -13,4 +14,4 @@ outputs:
 params: []
 
 run:
-  path: local-volume-release/scripts/ci/create_local_volume_release
+  path: local-volume-release-concourse-tasks/scripts/ci/create_local_volume_release

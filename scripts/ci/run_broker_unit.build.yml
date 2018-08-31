@@ -5,6 +5,7 @@ rootfs_uri: docker:///cloudfoundry/inigo-ci
 
 inputs:
   - name: local-volume-release
+  - name: local-volume-release-concourse-tasks
 
 run:
-  path: local-volume-release/scripts/ci/run_broker_unit
+  path: local-volume-release-concourse-tasks/scripts/ci/run_broker_unit
