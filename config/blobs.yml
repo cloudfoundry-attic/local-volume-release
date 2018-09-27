@@ -1,8 +1,8 @@
-golang/go1.10.linux-amd64.tar.gz:
-  size: 119905205
-  object_id: 506ffdee-2663-4c17-4677-c3cff23540ac
-  sha: 693e2dfd99ef2d608b41c450efd9d277bf2a7f2f
-golang/go1.10.windows-amd64.zip:
-  size: 131903498
-  object_id: 006a0ab9-2339-46bc-40f0-d7ac8cdd5529
-  sha: 0b16bc357770b5867df565f80f22842d13d95fd2
+go1.11.linux-amd64.tar.gz:
+  size: 127163815
+  object_id: 1c2e7bdf-5b6b-4e77-4e7b-eebf72b905ca
+  sha: 8ffb718cab4371df3495d8f6c0b15c7e6dc28fea
+go1.11.windows-amd64.zip:
+  size: 135029074
+  object_id: 2e2c1e44-ba9a-4e7f-7b12-27c8079d9d33
+  sha: b99364764571a4cc5f6cddb3b88ab2d355ec6701
