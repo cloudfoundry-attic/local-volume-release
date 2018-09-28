@@ -14,7 +14,7 @@ $ld_pkg_path="code.cloudfoundry.org/localdriver/cmd/localdriver"
 # Create GOPATH
 New-Item -ItemType "directory" -Force "${BOSH_INSTALL_TARGET}\src"
 
-robocopy.exe /E "${PWD}" "${BOSH_INSTALL_TARGET}\src"
+robocopy.exe /E "${PWD}" "${BOSH_INSTALL_TARGET}\src" > robocopy.out
 if ($LASTEXITCODE -ge 8) {
     Write-Error "robocopy.exe /E ${PWD} ${BOSH_INSTALL_TARGET}\src"
 }
