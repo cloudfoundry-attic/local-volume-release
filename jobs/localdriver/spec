@@ -26,3 +26,6 @@ properties:
   localdriver.log_level:
     description: "localdriver log level"
     default: "info"
+  localdriver.enable_unique_volume_ids:
+    description: "opt-in to unique volume IDs"
+    default: true

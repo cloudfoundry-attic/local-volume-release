@@ -29,11 +29,17 @@ case $1 in
     # Allowed number of open file descriptors
     ulimit -n 100000
 
+    ENABLE_UNIQUE_VOLUME_IDS=""
+    <% if p("localdriver.enable_unique_volume_ids") %>
+    ENABLE_UNIQUE_VOLUME_IDS="--uniqueVolumeIds"
+    <% end %>
+
     # volume drivers need to create directories with 777 so container users can see them
     umask 0
     exec chpst -u vcap:vcap /var/vcap/packages/localdriver/bin/localdriver \
       --listenAddr="<%= p("localdriver.listen_addr") %>" \
-      --transport="tcp" \
+      --transport="tcp-json" \
+      ${ENABLE_UNIQUE_VOLUME_IDS} \
       --debugAddr="<%= p("localdriver.debug_addr") %>" \
       --driversPath="<%= p("localdriver.driver_path") %>" \
       --mountDir="<%= p("localdriver.cell_mount_path") %>" \
