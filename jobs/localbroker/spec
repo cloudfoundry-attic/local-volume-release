@@ -37,3 +37,9 @@ properties:
   localbroker.password:
     description: "Basic auth password to verify on incoming Service Broker requests"
     default: "admin"
+  localbroker.log_level:
+    description: "localbroker log level"
+    default: "info"
+  localbroker.log_format:
+    description: "Format for timestamp in component logs. Valid values are 'unix-epoch' and 'rfc3339'."
+    default: "rfc3339"

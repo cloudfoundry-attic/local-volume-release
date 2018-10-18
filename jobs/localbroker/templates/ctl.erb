@@ -39,6 +39,8 @@ case $1 in
       --dataDir="<%= p("localbroker.data-dir") %>" \
       --username="<%= p("localbroker.username") %>" \
       --password="<%= p("localbroker.password") %>" \
+      --logLevel="<%= p("localbroker.log_level") %>" \
+      --logFormat="<%= p("localbroker.log_format") %>" \
       2> >(tee -a $LOG_DIR/localbroker.stderr.log | logger -p user.error -t vcap.localbroker) \
       1> >(tee -a $LOG_DIR/localbroker.stdout.log | logger -p user.info -t vcap.localbroker)
 
