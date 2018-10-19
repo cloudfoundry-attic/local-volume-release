@@ -44,7 +44,7 @@ case $1 in
       --driversPath="<%= p("localdriver.driver_path") %>" \
       --mountDir="<%= p("localdriver.cell_mount_path") %>" \
       --logLevel="<%= p("localdriver.log_level") %>" \
-      --logFormat="<%= p("localdriver.log_format") %>" \
+      --timeFormat="<%= p("localdriver.log_time_format") %>" \
       2> >(tee -a $LOG_DIR/localdriver.stderr.log | logger -p user.error -t vcap.localdriver) \
       1> >(tee -a $LOG_DIR/localdriver.stdout.log | logger -p user.info -t vcap.localdriver)
 

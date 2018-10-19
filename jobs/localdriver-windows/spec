@@ -24,6 +24,6 @@ properties:
   localdriver.log_level:
     description: "localdriver log level"
     default: "info"
-  localdriver.log_format:
+  localdriver.log_time_format:
     description: "Format for timestamp in component logs. Valid values are 'unix-epoch' and 'rfc3339'."
     default: "rfc3339"

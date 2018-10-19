@@ -40,6 +40,6 @@ properties:
   localbroker.log_level:
     description: "localbroker log level"
     default: "info"
-  localbroker.log_format:
+  localbroker.log_time_format:
     description: "Format for timestamp in component logs. Valid values are 'unix-epoch' and 'rfc3339'."
     default: "rfc3339"

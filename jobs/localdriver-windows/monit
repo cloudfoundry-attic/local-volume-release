@@ -10,7 +10,7 @@
         "--driversPath", "<%= p("localdriver.driver_path") %>",
         "--mountDir", "<%= p("localdriver.cell_mount_path") %>",
         "--logLevel", "<%= p("localdriver.log_level") %>",
-        "--logFormat", "<%= p("localdriver.log_format") %>"]
+        "--timeFormat", "<%= p("localdriver.log_time_format") %>"]
     }
   ]
 }
