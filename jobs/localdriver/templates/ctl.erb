@@ -6,23 +6,20 @@ RUN_DIR=/var/vcap/sys/run/localdriver
 LOG_DIR=/var/vcap/sys/log/localdriver
 PIDFILE=$RUN_DIR/localdriver.pid
 
-source /var/vcap/packages/localvolume_pid_utils/pid_utils.sh
+SCRIPT=$(basename $0)
+mkdir -p /var/vcap/sys/log/monit
+
+exec 1>> /var/vcap/sys/log/monit/${SCRIPT}.log
+exec 2>> /var/vcap/sys/log/monit/${SCRIPT}.err.log
 
 case $1 in
 
   start)
-    pid_guard $PIDFILE "localdriver"
-
     mkdir -p $RUN_DIR
     chown -R vcap:vcap $RUN_DIR
 
     mkdir -p $LOG_DIR
     chown -R vcap:vcap $LOG_DIR
-
-    export GOMAXPROCS=$(nproc)
-
-    # Work around for GOLANG 1.5.3 DNS bug
-    export GODEBUG=netdns=cgo
 
     echo $$ > $PIDFILE
 
@@ -51,8 +48,10 @@ case $1 in
     ;;
 
   stop)
-    kill_and_wait $PIDFILE
-
+    if [ -f $PIDFILE ]; then
+      kill -9 `cat $PIDFILE` || true
+      rm -f $PIDFILE
+    fi
     ;;
 
   *)

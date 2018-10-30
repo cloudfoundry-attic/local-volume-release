@@ -6,13 +6,15 @@ RUN_DIR=/var/vcap/sys/run/localbroker
 LOG_DIR=/var/vcap/sys/log/localbroker
 PIDFILE=$RUN_DIR/localbroker.pid
 
-source /var/vcap/packages/localvolume_pid_utils/pid_utils.sh
+SCRIPT=$(basename $0)
+mkdir -p /var/vcap/sys/log/monit
+
+exec 1>> /var/vcap/sys/log/monit/${SCRIPT}.log
+exec 2>> /var/vcap/sys/log/monit/${SCRIPT}.err.log
 
 case $1 in
 
   start)
-    pid_guard $PIDFILE "localbroker"
-
     mkdir -p $RUN_DIR
     chown -R vcap:vcap $RUN_DIR
 
@@ -21,11 +23,6 @@ case $1 in
 
     mkdir -p "<%= p("localbroker.data-dir") %>"
     chown -R vcap:vcap "<%= p("localbroker.data-dir") %>"
-
-    export GOMAXPROCS=$(nproc)
-
-    # Work around for go DNS bug (fix slated for v1.7)
-    export GODEBUG=netdns=cgo
 
     echo $$ > $PIDFILE
 
@@ -47,8 +44,10 @@ case $1 in
     ;;
 
   stop)
-    kill_and_wait $PIDFILE
-
+    if [ -f $PIDFILE ]; then
+      kill -9 `cat $PIDFILE` || true
+      rm -f $PIDFILE
+    fi
     ;;
 
   *)

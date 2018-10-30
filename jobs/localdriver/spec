@@ -7,7 +7,6 @@ templates:
 
 packages:
 - golang-localvolume
-- localvolume_pid_utils
 - localdriver
 
 properties:
