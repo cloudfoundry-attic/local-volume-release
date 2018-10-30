@@ -90,3 +90,6 @@
 	path = src/github.com/pivotal-cf/brokerapi
 	url = https://github.com/pivotal-cf/brokerapi
 	branch = master
+[submodule "src/github.com/zbiljic/go-filelock"]
+	path = src/github.com/zbiljic/go-filelock
+	url = https://github.com/zbiljic/go-filelock
