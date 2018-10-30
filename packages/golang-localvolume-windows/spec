@@ -1,6 +1,0 @@
----
-name: golang-localvolume-windows
-
-files:
-  - golang/go1.11.windows-amd64.zip
-  - exiter.ps1

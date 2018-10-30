@@ -6,7 +6,6 @@ templates:
   ctl.erb: bin/localdriver_ctl
 
 packages:
-- golang-localvolume
 - localdriver
 
 properties:

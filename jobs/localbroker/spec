@@ -5,7 +5,6 @@ templates:
   ctl.erb: bin/localbroker_ctl
 
 packages:
-- golang-localvolume
 - localbroker
 
 properties:

@@ -5,7 +5,6 @@ templates:
   install.ps1.erb: bin/pre-start.ps1
 
 packages:
-- golang-localvolume-windows
 - localdriver-windows
 
 properties:

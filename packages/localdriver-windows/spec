@@ -2,7 +2,7 @@
 name: localdriver-windows
 
 dependencies:
-- golang-localvolume-windows
+- golang-1-windows
 
 files:
   - exiter.ps1

@@ -2,7 +2,7 @@
 name: localbroker
 
 dependencies:
-- golang-localvolume
+- golang-1-linux
 
 files:
   - code.cloudfoundry.org/debugserver/*.go # gosub
