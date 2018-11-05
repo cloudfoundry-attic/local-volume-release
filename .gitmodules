@@ -85,3 +85,6 @@
 [submodule "src/github.com/zbiljic/go-filelock"]
 	path = src/github.com/zbiljic/go-filelock
 	url = https://github.com/zbiljic/go-filelock
+[submodule "src/code.cloudfoundry.org/dockerdriver"]
+	path = src/code.cloudfoundry.org/dockerdriver
+	url = https://github.com/cloudfoundry/dockerdriver
