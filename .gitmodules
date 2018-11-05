@@ -34,10 +34,6 @@
 	path = src/code.cloudfoundry.org/cfhttp
 	url = https://github.com/cloudfoundry/cfhttp
 	branch = master
-[submodule "src/github.com/cloudfoundry-incubator/voldriver"]
-	path = src/github.com/cloudfoundry-incubator/voldriver
-	url = https://github.com/cloudfoundry-incubator/voldriver
-	branch = master
 [submodule "src/code.cloudfoundry.org/clock"]
 	path = src/code.cloudfoundry.org/clock
 	url = https://github.com/cloudfoundry/clock
@@ -62,10 +58,6 @@
 [submodule "src/github.com/cloudfoundry-incubator/persi-acceptance-tests"]
 	path = src/github.com/cloudfoundry-incubator/persi-acceptance-tests
 	url = https://github.com/cloudfoundry-incubator/persi-acceptance-tests/
-[submodule "src/code.cloudfoundry.org/voldriver"]
-	path = src/code.cloudfoundry.org/voldriver
-	url = https://github.com/cloudfoundry/voldriver
-	branch = master
 [submodule "src/code.cloudfoundry.org/localdriver"]
 	path = src/code.cloudfoundry.org/localdriver
 	url = https://github.com/cloudfoundry/localdriver
