@@ -66,14 +66,6 @@
 	path = src/code.cloudfoundry.org/localbroker
 	url = https://github.com/cloudfoundry/localbroker
 	branch = master
-[submodule "src/code.cloudfoundry.org/persi-acceptance-tests"]
-	path = src/code.cloudfoundry.org/persi-acceptance-tests
-	url = https://github.com/cloudfoundry/persi-acceptance-tests
-	branch = master
-[submodule "src/github.com/cloudfoundry-incubator/cf-test-helpers"]
-	path = src/github.com/cloudfoundry-incubator/cf-test-helpers
-	url = https://github.com/cloudfoundry-incubator/cf-test-helpers
-	branch = master
 [submodule "src/code.cloudfoundry.org/goshims"]
 	path = src/code.cloudfoundry.org/goshims
 	url = https://github.com/cloudfoundry/goshims
@@ -82,9 +74,7 @@
 	path = src/github.com/pivotal-cf/brokerapi
 	url = https://github.com/pivotal-cf/brokerapi
 	branch = master
-[submodule "src/github.com/zbiljic/go-filelock"]
-	path = src/github.com/zbiljic/go-filelock
-	url = https://github.com/zbiljic/go-filelock
 [submodule "src/code.cloudfoundry.org/dockerdriver"]
 	path = src/code.cloudfoundry.org/dockerdriver
 	url = https://github.com/cloudfoundry/dockerdriver
+	branch = master
