@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e -x
+set -e
 
 RUN_DIR=/var/vcap/sys/run/localbroker
 LOG_DIR=/var/vcap/sys/log/localbroker
@@ -13,7 +13,6 @@ exec 1>> /var/vcap/sys/log/monit/${SCRIPT}.log
 exec 2>> /var/vcap/sys/log/monit/${SCRIPT}.err.log
 
 case $1 in
-
   start)
     mkdir -p $RUN_DIR
     chown -R vcap:vcap $RUN_DIR
@@ -40,7 +39,6 @@ case $1 in
       --timeFormat="<%= p("localbroker.log_time_format") %>" \
       2> >(tee -a $LOG_DIR/localbroker.stderr.log | logger -p user.error -t vcap.localbroker) \
       1> >(tee -a $LOG_DIR/localbroker.stdout.log | logger -p user.info -t vcap.localbroker)
-
     ;;
 
   stop)
@@ -52,7 +50,5 @@ case $1 in
 
   *)
     echo "Usage: localbroker_ctl {start|stop}"
-
     ;;
-
 esac

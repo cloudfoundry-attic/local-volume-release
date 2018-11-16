@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e -x
+set -e
 
 RUN_DIR=/var/vcap/sys/run/localdriver
 LOG_DIR=/var/vcap/sys/log/localdriver
@@ -13,7 +13,6 @@ exec 1>> /var/vcap/sys/log/monit/${SCRIPT}.log
 exec 2>> /var/vcap/sys/log/monit/${SCRIPT}.err.log
 
 case $1 in
-
   start)
     mkdir -p $RUN_DIR
     chown -R vcap:vcap $RUN_DIR
@@ -44,7 +43,6 @@ case $1 in
       --timeFormat="<%= p("localdriver.log_time_format") %>" \
       2> >(tee -a $LOG_DIR/localdriver.stderr.log | logger -p user.error -t vcap.localdriver) \
       1> >(tee -a $LOG_DIR/localdriver.stdout.log | logger -p user.info -t vcap.localdriver)
-
     ;;
 
   stop)
@@ -56,7 +54,5 @@ case $1 in
 
   *)
     echo "Usage: localdriver_ctl {start|stop}"
-
     ;;
-
 esac
