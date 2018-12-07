@@ -1,8 +1,1 @@
-golang/go1.11.linux-amd64.tar.gz:
-  size: 127163815
-  object_id: 1c2e7bdf-5b6b-4e77-4e7b-eebf72b905ca
-  sha: 8ffb718cab4371df3495d8f6c0b15c7e6dc28fea
-golang/go1.11.windows-amd64.zip:
-  size: 135029074
-  object_id: 2e2c1e44-ba9a-4e7f-7b12-27c8079d9d33
-  sha: b99364764571a4cc5f6cddb3b88ab2d355ec6701
+{}
