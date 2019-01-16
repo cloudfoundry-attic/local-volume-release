@@ -24,7 +24,7 @@ $env:PATH="$PWD/bin;$env:PATH"
 
 go install github.com/onsi/ginkgo/ginkgo
 
-go build -o "./localdriver" "src/code.cloudfoundry.org/localdriver/cmd/localdriver/main.go"
+go build -o "localdriver" "src/code.cloudfoundry.org/localdriver/cmd/localdriver/main.go"
 
 go get -t code.cloudfoundry.org/volume_driver_cert
 
