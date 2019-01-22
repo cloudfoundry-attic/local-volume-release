@@ -31,3 +31,9 @@ HOOKS_DIR=${RELEASE}/.git/modules/src/code.cloudfoundry.org/localdriver/hooks
 PRE_COMMIT=${HOOKS_DIR}/pre-commit
 mkdir -p ${HOOKS_DIR}
 install_pre_commit ${PRE_COMMIT}
+
+#localbroker hooks
+HOOKS_DIR=${RELEASE}/.git/modules/src/code.cloudfoundry.org/localbroker/hooks
+PRE_COMMIT=${HOOKS_DIR}/pre-commit
+mkdir -p ${HOOKS_DIR}
+install_pre_commit ${PRE_COMMIT}
