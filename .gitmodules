@@ -78,3 +78,7 @@
 	path = src/code.cloudfoundry.org/dockerdriver
 	url = https://github.com/cloudfoundry/dockerdriver
 	branch = master
+[submodule "src/code.cloudfoundry.org/tlsconfig"]
+	path = src/code.cloudfoundry.org/tlsconfig
+	url = https://github.com/cloudfoundry/tlsconfig
+	branch = master
