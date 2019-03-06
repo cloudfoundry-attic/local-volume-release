@@ -22,6 +22,7 @@ files:
   - code.cloudfoundry.org/localdriver/*.go # gosub
   - code.cloudfoundry.org/localdriver/cmd/localdriver/*.go # gosub
   - code.cloudfoundry.org/localdriver/oshelper/*.go # gosub
+  - code.cloudfoundry.org/tlsconfig/*.go # gosub
   - github.com/bmizerany/pat/*.go # gosub
   - github.com/tedsuo/ifrit/*.go # gosub
   - github.com/tedsuo/ifrit/grouper/*.go # gosub
