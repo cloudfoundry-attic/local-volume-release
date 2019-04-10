@@ -39,7 +39,6 @@ function sync_package() {
 }
 
 sync_package localdriver       -app code.cloudfoundry.org/localdriver/cmd/localdriver
-sync_package localdriver-windows       -app code.cloudfoundry.org/localdriver/cmd/localdriver
 sync_package localbroker       -app code.cloudfoundry.org/localbroker/cmd/localbroker
 
 wait
