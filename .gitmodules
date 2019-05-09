@@ -1,7 +1,3 @@
-[submodule "src/github.com/cloudfoundry-incubator/localdriver"]
-	path = src/github.com/cloudfoundry-incubator/localdriver
-	url = https://github.com/cloudfoundry-incubator/localdriver
-	branch = master
 [submodule "src/gopkg.in/yaml.v2"]
 	path = src/gopkg.in/yaml.v2
 	url = https://gopkg.in/yaml.v2
@@ -42,22 +38,12 @@
 	path = src/code.cloudfoundry.org/lager
 	url = https://github.com/cloudfoundry/lager
 	branch = master
-[submodule "src/github.com/cloudfoundry-incubator/localbroker"]
-	path = src/github.com/cloudfoundry-incubator/localbroker
-	url = https://github.com/cloudfoundry-incubator/localbroker
-	branch = master
 [submodule "src/github.com/gorilla/context"]
 	path = src/github.com/gorilla/context
 	url = https://github.com/gorilla/context
 [submodule "src/github.com/gorilla/mux"]
 	path = src/github.com/gorilla/mux
 	url = https://github.com/gorilla/mux
-[submodule "src/github.com/cloudfoundry-incubator/volume_driver_cert"]
-	path = src/github.com/cloudfoundry-incubator/volume_driver_cert
-	url = https://github.com/cloudfoundry-incubator/volume_driver_cert.git
-[submodule "src/github.com/cloudfoundry-incubator/persi-acceptance-tests"]
-	path = src/github.com/cloudfoundry-incubator/persi-acceptance-tests
-	url = https://github.com/cloudfoundry-incubator/persi-acceptance-tests/
 [submodule "src/code.cloudfoundry.org/localdriver"]
 	path = src/code.cloudfoundry.org/localdriver
 	url = https://github.com/cloudfoundry/localdriver
